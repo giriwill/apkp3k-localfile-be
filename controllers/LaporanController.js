@@ -96,6 +96,7 @@ export const saveLaporan = async (req, res) => {
     const hari = req.body.hari;
     const dari = req.body.dari;
     const sampai = req.body.sampai;
+    const durasi = req.body.durasi;
     const kegiatan = req.body.kegiatan;
     const file = req.files.file;
     const fileSize = file.data.length;
@@ -118,9 +119,11 @@ export const saveLaporan = async (req, res) => {
                 hari:hari,
                 dari:dari,
                 sampai:sampai,
+                durasi:durasi,
                 kegiatan:kegiatan,
                 foto: fileName,
                 url: url
+                // update durasi 
             });
             res.status(201).json({ msg: "Laporan Created Successfuly" });
         } catch (error) {
